@@ -42,11 +42,11 @@ jobs:
           name: app-jar
           path: target/
 
-      - name: Construir imagen Docker
-        run: docker build -t hola-mundo-api:latest .
-
       - name: Mover JAR junto al Dockerfile
         run: cp target/hola-mundo-api-1.0.0.jar hola-mundo-api-1.0.0.jar
+
+      - name: Construir imagen Docker
+        run: docker build -t hola-mundo-api:latest .
 
       - name: Copiar artefactos al VPS
         uses: appleboy/scp-action@v0.1.7
